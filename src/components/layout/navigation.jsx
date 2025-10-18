@@ -1,6 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
+import logo from '/edenites-logo.png';
 import { 
   FaBars, FaTimes, FaChevronDown, FaGraduationCap, FaLaptop, 
   FaVideo, FaInfoCircle, FaUserCircle, FaPhone, FaEnvelope,
@@ -587,7 +588,7 @@ const Navigation = () => {
               <Skeleton width={45} height={45} circle />
             ) : (
               <>
-                <img src="src/assets/edenites-logo.png" alt="Edenites Technologies" />
+                <img src={logo} alt="Edenites Technologies" />
               </>
             )}
           </Logo>
