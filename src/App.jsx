@@ -1,4 +1,3 @@
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Navigation from './components/layout/navigation';
@@ -15,8 +14,14 @@ const AppContainer = styled.div`
   flex-direction: column;
 `;
 
+// Add padding-top to account for fixed navigation height
 const MainContent = styled.main`
   flex: 1;
+  padding-top: 120px; /* Adjust based on your nav height */
+  
+  @media (max-width: 768px) {
+    padding-top: 80px; /* Smaller padding for mobile */
+  }
 `;
 
 function App() {
@@ -31,6 +36,7 @@ function App() {
             <Route path="/courses" element={<Courses />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
+            {/* <Route path="/auth" element={<Auth />} /> */}
           </Routes>
         </MainContent>
         <Footer />
