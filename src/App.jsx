@@ -7,6 +7,7 @@ import Dashboard from './pages/dashboard';
 import Courses from './pages/courses';
 import Contact from './pages/contact';
 import About from './pages/about';
+import AuthForm from './auth/authForm'; 
 
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -14,13 +15,12 @@ const AppContainer = styled.div`
   flex-direction: column;
 `;
 
-// Add padding-top to account for fixed navigation height
 const MainContent = styled.main`
   flex: 1;
-  padding-top: 120px; /* Adjust based on your nav height */
+  padding-top: 120px;
   
   @media (max-width: 768px) {
-    padding-top: 80px; /* Smaller padding for mobile */
+    padding-top: 80px;
   }
 `;
 
@@ -36,7 +36,8 @@ function App() {
             <Route path="/courses" element={<Courses />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
-            {/* <Route path="/auth" element={<Auth />} /> */}
+            <Route path="/auth" element={<AuthForm />} /> {/* Changed from /authForm to /auth */}
+            {/* Remove the LoadingSpinner route - it's not a page */}
           </Routes>
         </MainContent>
         <Footer />
