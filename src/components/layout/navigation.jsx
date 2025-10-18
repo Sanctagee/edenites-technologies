@@ -5,7 +5,7 @@ import {
   FaBars, FaTimes, FaChevronDown, FaGraduationCap, FaLaptop, 
   FaVideo, FaInfoCircle, FaUserCircle, FaPhone, FaEnvelope,
   FaYoutube, FaLinkedin, FaFacebook, FaInstagram, FaTwitter,
-  FaShoppingCart, FaGlobe
+  FaShoppingCart, FaGlobe, FaExternalLinkAlt
 } from 'react-icons/fa';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -91,38 +91,6 @@ const SocialLinks = styled.div`
       color: #2ECC40;
       transform: translateY(-2px);
     }
-  }
-`;
-
-const ExternalLinks = styled.div`
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  margin-left: 2rem;
-  padding-left: 2rem;
-  border-left: 1px solid rgba(255,255,255,0.2);
-  
-  a {
-    color: #ccc;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    font-size: 0.8rem;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    
-    &:hover {
-      color: #2ECC40;
-      transform: translateY(-1px);
-    }
-  }
-  
-  @media (max-width: 1024px) {
-    margin-left: 0;
-    padding-left: 0;
-    border-left: none;
-    margin-top: 0.5rem;
   }
 `;
 
@@ -353,6 +321,42 @@ const DropdownItem = styled(Link)`
   }
 `;
 
+const ExternalDropdownItem = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.5rem;
+  color: #001F3F;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid #f0f0f0;
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  &:hover {
+    background: rgba(46, 204, 64, 0.1);
+    color: #2ECC40;
+    padding-left: 2rem;
+  }
+  
+  svg {
+    font-size: 0.9rem;
+    color: #2ECC40;
+  }
+  
+  .external-icon {
+    margin-left: auto;
+    opacity: 0.7;
+    font-size: 0.7rem;
+  }
+  
+  @media (max-width: 968px) {
+    padding: 1rem 3rem;
+  }
+`;
+
 const MobileMenuButton = styled.button`
   display: none;
   background: none;
@@ -493,6 +497,27 @@ const Navigation = () => {
       { icon: <FaUserCircle />, label: 'Our Team', path: '/about#team' },
       { icon: <FaGraduationCap />, label: 'Careers', path: '/about#careers' },
       { icon: <FaEnvelope />, label: 'Contact Us', path: '/contact' }
+    ],
+    websites: [
+      { 
+        icon: <FaGlobe />, 
+        label: 'Cormatris', 
+        url: 'https://cormatris.org',
+        external: true
+      },
+      { 
+        icon: <FaShoppingCart />, 
+        label: 'Edenites Store', 
+        url: 'https://edenites.store',
+        external: true
+      },
+      // You can add more websites here in the future
+      { 
+        icon: <FaGraduationCap />, 
+        label: 'Student Portal', 
+        url: '/student-portal',
+        external: false
+      }
     ]
   };
 
@@ -545,15 +570,6 @@ const Navigation = () => {
               </a>
             </SocialLinks>
 
-            <ExternalLinks>
-              <a href="https://cormatris.org" target="_blank" rel="noopener noreferrer">
-                <FaGlobe /> Cormatris
-              </a>
-              <a href="https://edenites.store" target="_blank" rel="noopener noreferrer">
-                <FaShoppingCart /> Our Store
-              </a>
-            </ExternalLinks>
-
             <ContactInfo>
               <div>
                 <FaPhone />
@@ -571,7 +587,7 @@ const Navigation = () => {
               <Skeleton width={45} height={45} circle />
             ) : (
               <>
-                <img src="/edenites-logo.png" alt="Edenites Technologies" />
+                <img src="src/assets/edenites-logo.png" alt="Edenites Technologies" />
               </>
             )}
           </Logo>
@@ -585,7 +601,6 @@ const Navigation = () => {
           </MobileMenuButton>
 
           <NavLinks $isOpen={isMenuOpen}>
-            
             {/* Admissions Dropdown */}
             <NavItem
               onMouseEnter={() => !window.matchMedia('(max-width: 968px)').matches && setOpenDropdown('admissions')}
@@ -682,6 +697,45 @@ const Navigation = () => {
                     {item.icon}
                     {item.label}
                   </DropdownItem>
+                ))}
+              </Dropdown>
+            </NavItem>
+
+            {/* Our Websites Dropdown */}
+            <NavItem
+              onMouseEnter={() => !window.matchMedia('(max-width: 968px)').matches && setOpenDropdown('websites')}
+              onMouseLeave={() => !window.matchMedia('(max-width: 968px)').matches && setOpenDropdown(null)}
+            >
+              <DropdownNavLink 
+                $scrolled={scrolled}
+                onClick={() => handleDropdownToggle('websites')}
+              >
+                Our Websites <FaChevronDown size={12} />
+              </DropdownNavLink>
+              <Dropdown $isOpen={openDropdown === 'websites'}>
+                {dropdowns.websites.map((item, index) => (
+                  item.external ? (
+                    <ExternalDropdownItem 
+                      key={index}
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={closeAllMenus}
+                    >
+                      {item.icon}
+                      {item.label}
+                      <FaExternalLinkAlt className="external-icon" />
+                    </ExternalDropdownItem>
+                  ) : (
+                    <DropdownItem 
+                      key={index}
+                      to={item.url}
+                      onClick={closeAllMenus}
+                    >
+                      {item.icon}
+                      {item.label}
+                    </DropdownItem>
+                  )
                 ))}
               </Dropdown>
             </NavItem>
