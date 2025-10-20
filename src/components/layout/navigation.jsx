@@ -554,22 +554,23 @@ const Navigation = () => {
           
           <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
             <SocialLinks>
-              <a href="https://youtube.com/edenites" target="_blank" rel="noopener noreferrer" title="YouTube">
+              <a href="https://www.youtube.com/@edenitestechnologies" target="_blank" rel="noopener noreferrer" title="YouTube">
                 <FaYoutube />
               </a>
-              <a href="https://linkedin.com/company/edenites" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+              <a href="https://linkedin.com/company/edenitestechnologies" target="_blank" rel="noopener noreferrer" title="LinkedIn">
                 <FaLinkedin />
               </a>
-              <a href="https://facebook.com/edenites" target="_blank" rel="noopener noreferrer" title="Facebook">
+              <a href="https://facebook.com/edenites.tech" target="_blank" rel="noopener noreferrer" title="Facebook">
                 <FaFacebook />
               </a>
-              <a href="https://instagram.com/edenites" target="_blank" rel="noopener noreferrer" title="Instagram">
+              <a href="https://instagram.com/edenitestechnologies" target="_blank" rel="noopener noreferrer" title="Instagram">
                 <FaInstagram />
               </a>
-              <a href="https://twitter.com/edenites" target="_blank" rel="noopener noreferrer" title="Twitter">
+              <a href="https://twitter.com/edenitestech" target="_blank" rel="noopener noreferrer" title="Twitter">
                 <FaTwitter />
               </a>
             </SocialLinks>
+            
 
             <ContactInfo>
               <div>
