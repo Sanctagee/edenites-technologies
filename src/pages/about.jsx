@@ -232,6 +232,12 @@ const About = () => {
       <HeroSection data-aos="fade-up">
         <h1>About Edenites Technologies</h1>
         <p>
+          Founded in 2023, Edenites Technologies started as a small community 
+          of tech enthusiasts passionate about bridging the digital skills gap 
+          in Africa. What began as weekend coding workshops has grown into a 
+          comprehensive technology education platform.
+        </p>
+        <p>
           We are the Pan-African Tech Company - a vibrant community of innovators, 
           creators, and dreamers dedicated to transforming Africa through technology 
           education and digital empowerment.
@@ -256,7 +262,7 @@ const About = () => {
         <StatsSection data-aos="fade-left" data-aos-delay="200">
           <StatCard>
             <FaUsers />
-            <h3>500+</h3>
+            <h3>5,000+</h3>
             <p>Students Trained</p>
           </StatCard>
           <StatCard>

@@ -7,6 +7,7 @@ import Dashboard from './pages/dashboard';
 import Courses from './pages/courses';
 import Contact from './pages/contact';
 import About from './pages/about';
+import Team from './pages/Team';
 import AuthForm from './auth/authForm'; 
 
 const AppContainer = styled.div`
@@ -36,7 +37,8 @@ function App() {
             <Route path="/courses" element={<Courses />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
-            <Route path="/auth" element={<AuthForm />} /> {/* Changed from /authForm to /auth */}
+            <Route path="/about/team" element={<Team />} />
+            <Route path="/auth" element={<AuthForm />} /> 
             {/* Remove the LoadingSpinner route - it's not a page */}
           </Routes>
         </MainContent>

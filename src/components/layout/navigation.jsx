@@ -495,8 +495,8 @@ const Navigation = () => {
     ],
     about: [
       { icon: <FaInfoCircle />, label: 'Our Story', path: '/about' },
-      { icon: <FaUserCircle />, label: 'Our Team', path: '/about#team' },
-      { icon: <FaGraduationCap />, label: 'Careers', path: '/about#careers' },
+      { icon: <FaUserCircle />, label: 'Our Team', path: '/about/team' },
+      { icon: <FaGraduationCap />, label: 'Careers', path: '/about/careers' },
       { icon: <FaEnvelope />, label: 'Contact Us', path: '/contact' }
     ],
     websites: [
