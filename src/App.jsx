@@ -7,7 +7,7 @@ import Dashboard from './pages/dashboard';
 import Courses from './pages/courses';
 import Contact from './pages/contact';
 import About from './pages/about';
-import Team from './pages/Team';
+import Team from './pages/team';
 import AuthForm from './auth/authForm'; 
 
 const AppContainer = styled.div`
@@ -39,7 +39,6 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/about/team" element={<Team />} />
             <Route path="/auth" element={<AuthForm />} /> 
-            {/* Remove the LoadingSpinner route - it's not a page */}
           </Routes>
         </MainContent>
         <Footer />
